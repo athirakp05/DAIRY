@@ -64,13 +64,13 @@
 
 <div class="container">
     <h1>Registration</h1>
-    <form action="{% url 'login' %}" id="userregistrationform" method="POST" onsubmit="return validateRegistrationForm()">
+    <form action="#" id="userregistrationform" method="POST" onsubmit="return validateRegistrationForm()">
         {% csrf_token %}
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="Username"></label>
-                    <input type="text" class="form-control" id="Username" name="Username" placeholder="username" required oninput="validateUsername()">
+                    <label for="username"></label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required oninput="validateUsername()">
                     <div class="error-message" id="username-error"></div>
                 </div>
                 <div class="mb-3">
@@ -84,18 +84,18 @@
                     <div class="error-message" id="lastNameError"></div>
                 </div>
                 <div class="form-group">
-                    <label for="Email"></label>
-                    <input type="email" class="form-control" id="Email" name="Email"placeholder="Email" required oninput="validateEmail()">
+                    <label for="email"></label>
+                    <input type="email" class="form-control" id="email" name="email"placeholder="Email" required oninput="validateEmail()">
                     <div class="error-message" id="email-error"></div>
                 </div>
                 <div class="form-group">
-                    <label for="Password"></label>
-                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Password"required oninput="validatePassword()">
+                    <label for="password"></label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"required oninput="validatePassword()">
                     <div class="error-message" id="password-error"></div>
                 </div>
                 <div class="form-group">
                     <label for="ConfirmPassword"></label>
-                    <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword"placeholder="Password" required oninput="confirmPassword()">
+                    <input type="password" class="form-control" id="confirmpassword" name="confirmpassword"placeholder="Confirm Password" required oninput="confirmPassword()">
                     <div class="error-message" id="confirmPassword-error"></div>
                 </div>
             </div>
@@ -104,10 +104,13 @@
             <button type="submit" class="btn btn-lg btn-primary text-uppercase fw-bold mb-2">SignUp</button>
         </div>
     </form>
+{% for messages in messages %}
+<h6 style="color:red;">{{messages}}</h6>
+{% endfor %}
     <p class="login">Already have an account? <a href="{% url 'login' %}">Login</a></p>
     <script>
         function validateUsername() {
-            const usernameInput = document.getElementById("Username");
+            const usernameInput = document.getElementById("username");
             const usernameError = document.getElementById("username-error");
 
             // Validation for username
@@ -136,7 +139,7 @@
         }
 
         function validateEmail() {
-            const emailInput = document.getElementById("Email");
+            const emailInput = document.getElementById("email");
             const emailError = document.getElementById("email-error");
 
             // Validation for email
@@ -151,7 +154,7 @@
         }
 
         function validatePassword() {
-            const passwordInput = document.getElementById("Password");
+            const passwordInput = document.getElementById("password");
             const passwordError = document.getElementById("password-error");
 
             // Validation for password
@@ -166,8 +169,8 @@
         }
 
         function confirmPassword() {
-            const passwordInput = document.getElementById("Password");
-            const confirmPasswordInput = document.getElementById("ConfirmPassword");
+            const passwordInput = document.getElementById("password");
+            const confirmPasswordInput = document.getElementById("confirmpassword");
             const confirmPasswordError = document.getElementById("confirmPassword-error");
 
             // Validation for confirming password
@@ -199,4 +202,5 @@
         }
     </script>
 </div>
+
 {% endblock body %}
