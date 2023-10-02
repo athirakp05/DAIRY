@@ -7,5 +7,8 @@ def store(request):
     return render(request,'store.html')
 def loginn(request):
     return render(request,'login.html')
+def register(request):
+    return render(request,'registration.html')
+
 
 

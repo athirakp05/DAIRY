@@ -19,7 +19,7 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
+            padding: 50px;
             width: 500px;
             text-align: center;
         }
@@ -59,10 +59,10 @@
         <h1>Login</h1>
         <form method="POST" class="login-form" action="#" onsubmit="return validateForm();">
             {% csrf_token %}
-            Username <input type="text" name="username" id="username" placeholder="Username" >
+            <input type="text" name="username" id="username" placeholder="Username" >
             <span id="username-error" class="error-message"></span>
             <br>
-            Password <input type="password" name="password" id="password" placeholder="Password">
+             <input type="password" name="password" id="password" placeholder="Password">
             <span id="password-error" class="error-message"></span>
             <button type="submit">Login</button>
         </form>
